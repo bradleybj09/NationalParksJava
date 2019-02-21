@@ -1,17 +1,17 @@
 package com.techelevator.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Reservation {
 	
 	private long reservationId;
 	private long siteId;
 	private String name;
-	private Date fromDate;
-	private Date toDate;
-	private Date createDate;
+	private LocalDate fromDate;
+	private LocalDate toDate;
+	private LocalDate createDate;
 	
-	public Reservation(long siteId, String name, Date fromDate, Date toDate, Date createDate) {
+	public Reservation(long siteId, String name, LocalDate fromDate, LocalDate toDate, LocalDate createDate) {
 		this.siteId = siteId;
 		this.name = name;
 		this.fromDate = fromDate;
@@ -35,15 +35,15 @@ public class Reservation {
 		return name;
 	}
 
-	public Date getFromDate() {
+	public LocalDate getFromDate() {
 		return fromDate;
 	}
 
-	public Date getToDate() {
+	public LocalDate getToDate() {
 		return toDate;
 	}
 
-	public Date getCreateDate() {
+	public LocalDate getCreateDate() {
 		return createDate;
 	}
 	
