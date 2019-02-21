@@ -11,6 +11,15 @@ public class Campground {
 	private LocalDate closedMonth;
 	private double dailyFee;
 	
+	
+	public Campground(long parkId, String name, LocalDate openMonth, LocalDate closedMonth, double dailyFee) {
+		this.parkId = parkId;
+		this.name = name;
+		this.openMonth = openMonth;
+		this.closedMonth = closedMonth;
+		this.dailyFee = dailyFee;
+	}
+	
 	public long getCampgroundId() {
 		return campgroundId;
 	}
@@ -20,32 +29,16 @@ public class Campground {
 	public long getParkId() {
 		return parkId;
 	}
-	public void setParkId(long parkId) {
-		this.parkId = parkId;
-	}
 	public String getName() {
 		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public LocalDate getOpenMonth() {
 		return openMonth;
 	}
-	public void setOpenMonth(LocalDate openMonth) {
-		this.openMonth = openMonth;
-	}
 	public LocalDate getClosedMonth() {
 		return closedMonth;
 	}
-	public void setClosedMonth(LocalDate closedMonth) {
-		this.closedMonth = closedMonth;
-	}
 	public double getDailyFee() {
 		return dailyFee;
-	}
-	public void setDailyFee(double dailyFee) {
-		this.dailyFee = dailyFee;
-	}
-	
+	}	
 }
