@@ -1,5 +1,9 @@
 package com.techelevator.model;
 
-public interface CampgroundDAO {
+import java.util.List;
 
+public interface CampgroundDAO {
+	
+	public List<Campground> getCampgroundsById();
+	
 }
