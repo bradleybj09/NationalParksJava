@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.data;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+
+import com.techelevator.model.Reservation;
 
 public class JDBCReservationDAO implements ReservationDAO {
 	

@@ -1,6 +1,8 @@
-package com.techelevator.model;
+package com.techelevator.data;
 
 import java.util.List;
+
+import com.techelevator.model.Reservation;
 
 public interface ReservationDAO {
 
