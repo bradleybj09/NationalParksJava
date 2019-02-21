@@ -21,6 +21,16 @@ public class Park {
 		this.parkDescription = parkDescription;
 	}
 	
+	public Park(Long parkId, String name, String location, LocalDate establishedDate, double area, int annualVisitorCount, String parkDescription) {
+		this.parkId = parkId;
+		this.name = name;
+		this.location = location;
+		this.establishedDate = establishedDate;
+		this.area = area;
+		this.annualVisitorCount = annualVisitorCount;
+		this.parkDescription = parkDescription;
+	}
+	
 	public long getParkId() {
 		return parkId;
 	}
