@@ -12,6 +12,15 @@ public class Park {
 	private int annualVisitorCount;
 	private String parkDescription;
 	
+	public Park(String name, String location, LocalDate establishedDate, double area, int annualVisitorCount, String parkDescription) {
+		this.name = name;
+		this.location = location;
+		this.establishedDate = establishedDate;
+		this.area = area;
+		this.annualVisitorCount = annualVisitorCount;
+		this.parkDescription = parkDescription;
+	}
+	
 	public long getParkId() {
 		return parkId;
 	}
@@ -21,38 +30,26 @@ public class Park {
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
+
 	public String getLocation() {
 		return location;
 	}
-	public void setLocation(String location) {
-		this.location = location;
-	}
+
 	public LocalDate getEstablishedDate() {
 		return establishedDate;
 	}
-	public void setEstablishedDate(LocalDate establishedDate) {
-		this.establishedDate = establishedDate;
-	}
+
 	public double getArea() {
 		return area;
 	}
-	public void setArea(double area) {
-		this.area = area;
-	}
+
 	public int getAnnualVisitorCount() {
 		return annualVisitorCount;
 	}
-	public void setAnnualVisitorCount(int annualVisitorCount) {
-		this.annualVisitorCount = annualVisitorCount;
-	}
+
 	public String getParkDescription() {
 		return parkDescription;
 	}
-	public void setParkDescription(String parkDescription) {
-		this.parkDescription = parkDescription;
-	}
+
 	
 }

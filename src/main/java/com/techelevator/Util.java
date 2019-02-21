@@ -8,19 +8,19 @@ import com.techelevator.model.Site;
 public class Util {
 	private Util() {}
 	
-	public static Park createPark() {
-		return new Park();
-	}
-	
-	public Campground createCampground() {
-		return new Campground();
-	}
-	
-	public Site createSite() {
-		return new Site();
-	}
-	
-	public Reservation createReservation() {
-		return new Reservation();
-	}
+//	public static Park createPark() {
+//		return new Park();
+//	}
+//	
+//	public Campground createCampground() {
+//		return new Campground();
+//	}
+//	
+//	public Site createSite() {
+//		return new Site();
+//	}
+//	
+//	public Reservation createReservation() {
+//		return new Reservation();
+//	}
 }
