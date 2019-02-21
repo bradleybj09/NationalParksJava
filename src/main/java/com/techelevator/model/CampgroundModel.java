@@ -14,7 +14,7 @@ import com.techelevator.data.ParkDAO;
 import com.techelevator.data.ReservationDAO;
 import com.techelevator.data.SiteDAO;
 
-public class Model {
+public class CampgroundModel {
 	
 	private ParkDAO parkDao;
 	private CampgroundDAO campgroundDao;
@@ -22,7 +22,7 @@ public class Model {
 	private ReservationDAO reservationDao;
 	private List<Park> parks;
 	
-	public Model(BasicDataSource dataSource) {
+	public CampgroundModel(BasicDataSource dataSource) {
 		parks = new ArrayList<Park>();
 		parkDao = new JDBCParkDAO(dataSource);
 		campgroundDao = new JDBCCampgroundDAO(dataSource);

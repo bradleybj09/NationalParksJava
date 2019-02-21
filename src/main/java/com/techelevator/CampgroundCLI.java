@@ -1,29 +1,22 @@
 package com.techelevator;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.dbcp2.BasicDataSource;
-
-import com.techelevator.model.Model;
+import com.techelevator.controller.CampgroundController;
+import com.techelevator.model.CampgroundModel;
+import com.techelevator.view.Menu;
 
 public class CampgroundCLI {
 
 
 	public static void main(String[] args) {
 		BasicDataSource dataSource = new BasicDataSource();
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/campground");
+		dataSource.setUrl("jdbc:postgresql://localhost:5432/campgrounds");
 		dataSource.setUsername("postgres");
 		dataSource.setPassword("postgres1");
-		Model model = new Model(dataSource);
-		CampgroundCLI application = new CampgroundCLI(dataSource);
-		application.run();
+		CampgroundModel model = new CampgroundModel(dataSource);
+		Menu menu = new Menu();
+		CampgroundController controller = new CampgroundController(model, menu);
+		controller.run();
 	}
 
-	public CampgroundCLI(DataSource datasource) {
-		// create your DAOs here
-	}
-	
-	public void run() {
-		
-	}
 }
