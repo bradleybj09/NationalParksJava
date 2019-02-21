@@ -1,24 +1,34 @@
 package com.techelevator.model;
 
-import java.time.LocalDate;
+import java.math.BigDecimal;
 
 public class Campground {
 
 	private long campgroundId;
 	private long parkId;
 	private String name;
-	private LocalDate openMonth;
-	private LocalDate closedMonth;
-	private double dailyFee;
+	private int openMonth;
+	private int closedMonth;
+	private BigDecimal dailyFee;
 	
 	
-	public Campground(long parkId, String name, LocalDate openMonth, LocalDate closedMonth, double dailyFee) {
+	public Campground(long parkId, String name, int openMonth, int closedMonth, BigDecimal dailyFee) {
 		this.parkId = parkId;
 		this.name = name;
 		this.openMonth = openMonth;
 		this.closedMonth = closedMonth;
 		this.dailyFee = dailyFee;
 	}
+	
+	public Campground(long campgroundId, long parkId, String name, int openMonth, int closedMonth, BigDecimal dailyFee) {
+		this.campgroundId = campgroundId;
+		this.parkId = parkId;
+		this.name = name;
+		this.openMonth = openMonth;
+		this.closedMonth = closedMonth;
+		this.dailyFee = dailyFee;
+	}
+
 	
 	public long getCampgroundId() {
 		return campgroundId;
@@ -32,13 +42,13 @@ public class Campground {
 	public String getName() {
 		return name;
 	}
-	public LocalDate getOpenMonth() {
+	public int getOpenMonth() {
 		return openMonth;
 	}
-	public LocalDate getClosedMonth() {
+	public int getClosedMonth() {
 		return closedMonth;
 	}
-	public double getDailyFee() {
+	public BigDecimal getDailyFee() {
 		return dailyFee;
 	}	
 }

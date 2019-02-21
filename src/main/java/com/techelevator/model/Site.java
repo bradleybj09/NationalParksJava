@@ -19,6 +19,17 @@ public class Site {
 		this.hasUtilityHookup = hasUtilityHookup;
 	}
 	
+	public Site(long siteId, long campgroundId, int siteNumber, int maxOccupancy, boolean isHandicapAccessible, int maxRvLength, boolean hasUtilityHookup) {
+		this.siteId = siteId;
+		this.campgroundId = campgroundId;
+		this.siteNumber = siteNumber;
+		this.maxOccupancy = maxOccupancy;
+		this.isHandicapAccessible = isHandicapAccessible;
+		this.maxRvLength = maxRvLength;
+		this.hasUtilityHookup = hasUtilityHookup;
+	}
+
+	
 	public long getSiteId() {
 		return siteId;
 	}

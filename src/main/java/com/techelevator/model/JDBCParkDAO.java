@@ -19,7 +19,7 @@ public class JDBCParkDAO implements ParkDAO {
 
 	@Override
 	public List<Park> getAllParks() {
-		List<Park> parks = new ArrayList<>();
+		List<Park> parks = new ArrayList<Park>();
 
 		String sqlSelectParks = "SELECT * FROM park ORDER BY name ASC;";
 

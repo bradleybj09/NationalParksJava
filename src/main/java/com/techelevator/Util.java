@@ -8,6 +8,16 @@ import com.techelevator.model.Site;
 public class Util {
 	private Util() {}
 	
+	public static int convertDoubleToInt(double d) {
+		double cents = d * 100;
+		return (int)cents;
+	}
+	
+	public static double convertIntToDouble(int i) {
+		double d = i / 100.0;
+		return d;
+	}
+	
 //	public static Park createPark() {
 //		return new Park();
 //	}
