@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.Util;
 import com.techelevator.model.CampgroundModel;
+import com.techelevator.model.Park;
 import com.techelevator.view.Menu;
 
 public class CampgroundController {
@@ -12,7 +13,7 @@ public class CampgroundController {
 	int displayOption = Util.DISPLAY_MODE_PARKS;
 	boolean programActive = true;
 	boolean firstTimeInMenu = true;
-	int parkChoice = -1;
+	int parkIndex = -1;
 	
 	public CampgroundController(CampgroundModel model, Menu menu) {
 		this.model = model;
@@ -45,14 +46,14 @@ public class CampgroundController {
 				case 0:
 					menu.displayError();
 				default:
-					parkChoice = choice;
-					displayOption = Util.DISPLAY_MODE_CAMPGROUNDS;
+					parkIndex = choice - 1;
+					displayOption = Util.DISPLAY_MODE_PARK_DETAILS;
 					firstTimeInMenu = true;
 					break;
 				}
 			}
-			while (displayOption == Util.DISPLAY_MODE_CAMPGROUNDS) {
-				
+			while (displayOption == Util.DISPLAY_MODE_PARK_DETAILS) {
+				Park park = model.getParks().get(parkIndex);
 			}
 		}
 	}

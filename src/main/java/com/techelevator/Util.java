@@ -41,10 +41,11 @@ public class Util {
 	public static final String GOODBYE = "System exiting. Will I dream?";
 	
 	public static final int DISPLAY_MODE_PARKS = 1;
-	public static final int DISPLAY_MODE_CAMPGROUNDS = 2;
-	public static final int DISPLAY_MODE_SITES = 3;
-	public static final int DISPLAY_MODE_RESERVATIONS = 4;
-	public static final int DISPLAY_MODE_PROGRAM_EXIT = 5;
+	public static final int DISPLAY_MODE_PARK_DETAILS = 2;
+	public static final int DISPLAY_MODE_CAMPGROUNDS = 3;
+	public static final int DISPLAY_MODE_SITES = 4;
+	public static final int DISPLAY_MODE_RESERVATIONS = 5;
+	public static final int DISPLAY_MODE_PROGRAM_EXIT = 99;
 	
 	public static int convertDoubleToInt(double d) {
 		double cents = d * 100;
