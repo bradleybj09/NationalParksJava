@@ -49,4 +49,25 @@ public class JDBCReservationDAO implements ReservationDAO {
 		return id.getLong(1);
 	}
 
+
+	@Override
+	public List<Reservation> getReservationsByNameOnReservation(String name) {
+		List<Reservation> reservations = new ArrayList<Reservation>();
+		String sqlSelectReservations = "SELECT * FROM reservation WHERE name = ?;";
+		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectReservations, name);
+		while (set.next()) {
+			reservations.add(mapRowToReservation(set));
+		}
+		return reservations;
+	}
+
+
+	@Override
+	public Reservation getReservationByReservationId(long reservationId) {
+		String sqlSelectReservation = "SELECT * FROM reservation WHERE reservation_id = ?;";
+		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectReservation, reservationId);
+		set.next();
+		return mapRowToReservation(set);
+	}
+
 }

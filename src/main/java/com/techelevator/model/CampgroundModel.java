@@ -51,6 +51,14 @@ public class CampgroundModel {
 	public List<Reservation> getReservationsBySiteId(long siteId) {
 		return reservationDao.getReservationsBySiteId(siteId);
 	}
+	
+	public Reservation getReservationByReservationId(long reservationId) {
+		return reservationDao.getReservationByReservationId(reservationId);
+	}
+	
+	public List<Reservation> getReservationsByNameOnReservation(String name) {
+		return reservationDao.getReservationsByNameOnReservation(name);
+	}
 
 	
 }

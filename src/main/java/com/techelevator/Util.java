@@ -39,12 +39,16 @@ public class Util {
 	public static final String INPUT_NOT_VALID_INTEGER = "You did not enter a valid option. Please try again.";
 	public static final String ERROR = "Something we didn't account for went wrong.";
 	public static final String GOODBYE = "System exiting. Will I dream?";
+	public static final String NO_RESERVATIONS_FOUND = "No reservations were found matching your search.";
+	public static final String SEARCH_RESERVATION_PROMPT = "Please enter the name on the reservation(s) or the reservation ID";
+	public static final String RESERVATION_SEARCH_ERROR = "You did not enter a valid input. Please try again.";
 	
 	public static final int DISPLAY_MODE_PARKS = 1;
 	public static final int DISPLAY_MODE_PARK_DETAILS = 2;
 	public static final int DISPLAY_MODE_CAMPGROUNDS = 3;
 	public static final int DISPLAY_MODE_SITES = 4;
 	public static final int DISPLAY_MODE_RESERVATIONS = 5;
+	public static final int DISPLAY_MODE_FIND_RESERVATION = 6;
 	public static final int DISPLAY_MODE_PROGRAM_EXIT = 99;
 	
 	public static int convertDoubleToInt(double d) {
