@@ -25,7 +25,7 @@ public class JDBCCampgroundDAO implements CampgroundDAO{
 	public List<Campground> getCampgroundsById(long parkId) {
 		List<Campground> campgrounds = new ArrayList<Campground>();
 
-		String sqlSelectCampgrounds = "SELECT * FROM campgrounds WHERE park_id = ? ORDER BY name ASC;";
+		String sqlSelectCampgrounds = "SELECT * FROM campground WHERE park_id = ? ORDER BY name ASC;";
 
 		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectCampgrounds, parkId);
 		

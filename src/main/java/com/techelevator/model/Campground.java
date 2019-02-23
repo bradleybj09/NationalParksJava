@@ -29,7 +29,6 @@ public class Campground {
 		this.dailyFee = dailyFee;
 	}
 
-	
 	public long getCampgroundId() {
 		return campgroundId;
 	}

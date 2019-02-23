@@ -58,7 +58,7 @@ public class Site {
 		return maxRvLength;
 	}
 
-	public boolean isHasUtilityHookup() {
+	public boolean hasUtilityHookup() {
 		return hasUtilityHookup;
 	}
 

@@ -52,13 +52,15 @@ public class CampgroundModel {
 		return reservationDao.getReservationsBySiteId(siteId);
 	}
 	
-	public Reservation getReservationByReservationId(long reservationId) {
-		return reservationDao.getReservationByReservationId(reservationId);
+	public Reservation getReservationByReservationId(long reservationId, long parkId) {
+		return reservationDao.getReservationByReservationId(reservationId, parkId);
 	}
 	
-	public List<Reservation> getReservationsByNameOnReservation(String name) {
-		return reservationDao.getReservationsByNameOnReservation(name);
+	public List<Reservation> getReservationsByNameOnReservation(String name, long parkId) {
+		return reservationDao.getReservationsByNameOnReservation(name, parkId);
 	}
 
-	
+	public long makeReservation(Reservation reservation) {
+		return reservationDao.createReservation(reservation);
+	}
 }
