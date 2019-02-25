@@ -83,12 +83,21 @@ public class Menu {
 	}
 	public void displayParkDetails(Park park) {
 		System.out.println(park.getName());
-		System.out.println(Util.LOCATION + "\t" + park.getLocation());
-		System.out.println(Util.ESTABLISHED + "\t" + park.getEstablishedDate());
-		System.out.println(Util.AREA + "\t" + park.getArea());
-		System.out.println(Util.ANNUAL_VISITOR + "\t" + park.getAnnualVisitorCount());
+		System.out.printf("%-20s", Util.LOCATION);
+		System.out.println(park.getLocation());
+		System.out.printf("%-20s", Util.ESTABLISHED);
+		System.out.println(park.getEstablishedDate());
+		System.out.printf("%-20s", Util.AREA);
+		System.out.println(park.getArea());
+		System.out.printf("%-20s", Util.ANNUAL_VISITOR);
+		System.out.println(park.getAnnualVisitorCount());
 		System.out.println();
-		System.out.println(park.getParkDescription());
+		List<String> stringList = Util.stringBreak(park.getParkDescription(), 101);
+		String description = "";
+		for (String string : stringList) {
+			description += string + "\n";
+		}
+		System.out.println(description);
 		System.out.println();
 		System.out.println(Util.MAKE_CHOICE);
 		System.out.println("\t1) " + Util.VIEW_CAMPGROUNDS);
@@ -144,10 +153,10 @@ public class Menu {
 						+ "\n\tName on Reservation: " +  reservation.getName()
 						+ "\n\tDates: " + reservation.getFromDate() + " - " + reservation.getToDate());
 				System.out.println();
-				System.out.println(Util.PRESS_ENTER_TO_RETURN);
-				scanner.nextLine();
 			}
 		}
+		System.out.println(Util.PRESS_ENTER_TO_RETURN);
+		scanner.nextLine();
 	}
 	
 	public void displayReservationSearchError() {
@@ -161,19 +170,25 @@ public class Menu {
 	}
 	
 	public void displayCampgrounds(List<Campground> list, boolean includeNumbers) {
-		System.out.println("\t" + Util.NAME + "\t" + Util.OPEN + "\t" + Util.CLOSE + "\t" + Util.DAILY_FEE);
+		System.out.printf("\t%-20s", Util.NAME);
+		System.out.printf("%-20s", Util.OPEN);
+		System.out.printf("%-20s", Util.CLOSE);
+		System.out.printf("%-20s", Util.DAILY_FEE);
+		System.out.println();
 		for (int i = 0; i < list.size(); i++) {
 			Campground c = list.get(i);
 			if (includeNumbers) {
-				System.out.println("\t" + (i+1) + ")\t" + c.getName() 
-						+ "\t" + Util.convertMonthIntToString(c.getOpenMonth()) 
-						+ "\t" + Util.convertMonthIntToString(c.getClosedMonth())
-						+ "\t" + Util.convertBigDecimalToDollarString(c.getDailyFee()));
+				System.out.printf((i+1) + "\t%-20s", c.getName());
+				System.out.printf("%-20s", Util.convertMonthIntToString(c.getOpenMonth()));
+				System.out.printf("%-20s", Util.convertMonthIntToString(c.getClosedMonth()));
+				System.out.printf("%-20s", Util.convertBigDecimalToDollarString(c.getDailyFee()));
+				System.out.println();
 			} else {
-				System.out.println("\t" + c.getName() 
-						+ "\t" + Util.convertMonthIntToString(c.getOpenMonth()) 
-						+ "\t" + Util.convertMonthIntToString(c.getClosedMonth())
-						+ "\t" + Util.convertBigDecimalToDollarString(c.getDailyFee()));
+				System.out.printf("\t%-20s", c.getName());
+				System.out.printf("%-20s", Util.convertMonthIntToString(c.getOpenMonth()));
+				System.out.printf("%-20s", Util.convertMonthIntToString(c.getClosedMonth()));
+				System.out.printf("%-20s", Util.convertBigDecimalToDollarString(c.getDailyFee()));
+				System.out.println();
 			}
 		}
 	}
@@ -239,19 +254,22 @@ public class Menu {
 	
 	public void displayReservationResults(List<Site> list, String cost) {
 		System.out.println(Util.RESULTS_HEADER);
-		System.out.println(Util.SITE_NUMBER
-				+ "\t" + Util.MAX_OCCUPANCY
-				+ "\t" + Util.ACCESSIBLE
-				+ "\t" + Util.MAX_RV_LENGTH
-				+ "\t" + Util.UTILITY_HOOKUPS
-				+ "\t" + Util.COST);
+		System.out.printf("%-20s", Util.SITE_NUMBER);
+		System.out.printf("%-20s", Util.MAX_OCCUPANCY);
+		System.out.printf("%-20s", Util.ACCESSIBLE);
+		System.out.printf("%-20s", Util.MAX_RV_LENGTH);
+		System.out.printf("%-20s", Util.UTILITY_HOOKUPS);
+		System.out.printf("%-20s", Util.COST);
+		System.out.printf("%-20s", Util.SITE_NUMBER);
+		System.out.println();
 		for (Site site : list) {
-			System.out.println(site.getSiteNumber()
-					+ "\t" + site.getMaxOccupancy()
-					+ "\t" + site.isHandicapAccessible()
-					+ "\t" + site.getMaxRvLength()
-					+ "\t" + site.hasUtilityHookup()
-					+ "\t" + cost);
+			System.out.printf("%-20s", site.getSiteNumber());
+			System.out.printf("%-20s", site.getMaxOccupancy());
+			System.out.printf("%-20s", site.isHandicapAccessible());
+			System.out.printf("%-20s", site.getMaxRvLength());
+			System.out.printf("%-20s", site.hasUtilityHookup());
+			System.out.printf("%-20s", cost);
+			System.out.println();
 		}
 	}
 	

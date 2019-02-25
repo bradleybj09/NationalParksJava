@@ -1,6 +1,8 @@
 package com.techelevator;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Util {
 	private Util() {}
@@ -59,17 +61,7 @@ public class Util {
 	public static final int DISPLAY_MODE_FIND_RESERVATION = 6;
 	public static final int DISPLAY_MODE_AVAILABLE_RESERVATIONS = 7;
 	public static final int DISPLAY_MODE_PROGRAM_EXIT = 99;
-	
-	public static int convertDoubleToInt(double d) {
-		double cents = d * 100;
-		return (int)cents;
-	}
-	
-	public static double convertIntToDouble(int i) {
-		double d = i / 100.0;
-		return d;
-	}
-	
+		
 	public static String convertMonthIntToString(int i) {
 		switch (i) {
 		case 1:
@@ -103,6 +95,68 @@ public class Util {
 	
 	public static String convertBigDecimalToDollarString(BigDecimal b) {
 		return String.format("$%.2f",b.doubleValue());
+	}
+	
+	public static List<String> stringBreak(String string, int maxChar) {
+
+		List<String> subLines = new ArrayList<String>();
+
+		int length = string.length();
+		int start = 0;
+		int end = maxChar;
+		if (length > maxChar) {
+
+		    int noOfLines = (length / maxChar) + 1;
+
+		    int endOfStr[] = new int[noOfLines];
+
+		    for (int f = 0; f < noOfLines - 1; f++) {
+
+		        int end1 = maxChar;
+
+		        endOfStr[f] = end;
+
+		        if (string.charAt(end - 1) != ' ') {
+
+		            if (string.charAt(end - 2) == ' ') {
+
+		                subLines.add(string.substring(start, end - 1));
+		                start = end - 1;
+		                end = end - 1 + end1;
+
+		            } else if (string.charAt(end - 2) != ' '
+		                    && string.charAt(end) == ' ') {
+
+		                subLines.add(string.substring(start, end));
+		                start = end;
+		                end = end + end1;
+
+		            } else if (string.charAt(end - 2) != ' ') {
+
+		                subLines.add(string.substring(start, end) + "-");
+		                start = end;
+		                end = end + end1;
+
+		            } else if (string.charAt(end + 2) == ' ') {
+		                System.out.println("m here ............");
+		                int lastSpaceIndex = string.substring(start, end)
+		                        .lastIndexOf("");
+		                subLines.add(string.substring(start, lastSpaceIndex));
+
+		                start = lastSpaceIndex;
+		                end = lastSpaceIndex + end1;
+		            }
+
+		        } else {
+
+		            subLines.add(string.substring(start, end));
+		            start = end;
+		            end = end + end1;
+		        }
+		    }
+		    subLines.add(string.substring(endOfStr[noOfLines - 2], length));
+		}
+		return subLines;
 	}
 	
 }

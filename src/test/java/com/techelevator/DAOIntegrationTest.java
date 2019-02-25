@@ -7,6 +7,7 @@ import javax.sql.DataSource;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 
 public abstract class DAOIntegrationTest {
@@ -40,6 +41,17 @@ public abstract class DAOIntegrationTest {
 	@After
 	public void rollback() throws SQLException {
 		dataSource.getConnection().rollback();
+		String resetPark = "ALTER SEQUENCE park_park_id_seq RESTART WITH 4";
+		String resetCampground = "ALTER SEQUENCE campground_campground_id_seq RESTART WITH 8";
+		String resetSite = "ALTER SEQUENCE site_site_id_seq RESTART WITH 623";
+		String resetReservation = "ALTER SEQUENCE reservation_reservation_id_seq RESTART WITH 45";
+		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate.update(resetPark);
+		jdbcTemplate.update(resetCampground);
+		jdbcTemplate.update(resetSite);
+		jdbcTemplate.update(resetReservation);
+		dataSource.getConnection().commit();
+
 	}
 	
 	/* This method provides access to the DataSource for subclasses so that 
