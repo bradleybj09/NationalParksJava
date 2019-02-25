@@ -46,12 +46,13 @@ public class JDBCReservationDAO implements ReservationDAO {
 		String sqlInsertReservation = "INSERT INTO reservation (site_id, name, from_date, to_date, create_date) VALUES (?, ?, ?, ?, ?) RETURNING reservation_id;";
 		SqlRowSet id = jdbcTemplate.queryForRowSet(sqlInsertReservation, reservation.getSiteId(), reservation.getName(), reservation.getFromDate(), reservation.getToDate(), reservation.getCreateDate());
 		id.next();
+		reservation.setReservationId(id.getLong(1));
 		return id.getLong(1);
 	}
 
 
 	@Override
-	public List<Reservation> getReservationsByNameOnReservation(String name) {
+	public List<Reservation> getReservationsByNameOnReservation(String name, long parkId) {
 		List<Reservation> reservations = new ArrayList<Reservation>();
 		String sqlSelectReservations = "SELECT * FROM reservation WHERE name = ?;";
 		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectReservations, name);
@@ -63,7 +64,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 
 	@Override
-	public Reservation getReservationByReservationId(long reservationId) {
+	public Reservation getReservationByReservationId(long reservationId, long parkId) {
 		String sqlSelectReservation = "SELECT * FROM reservation WHERE reservation_id = ?;";
 		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectReservation, reservationId);
 		set.next();

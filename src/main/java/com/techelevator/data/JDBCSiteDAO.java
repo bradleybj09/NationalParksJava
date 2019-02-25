@@ -22,7 +22,7 @@ public class JDBCSiteDAO implements SiteDAO {
 	@Override
 	public List<Site> getSitesByCampgroundId(long campgroundId) {
 		List<Site> sites = new ArrayList<Site>();
-		String sqlSelectSites = "Select * FROM site WHERE campground_id = ? ORDER BY name ASC;";
+		String sqlSelectSites = "Select * FROM site WHERE campground_id = ? ORDER BY site_number ASC;";
 		SqlRowSet set = jdbcTemplate.queryForRowSet(sqlSelectSites, campgroundId);
 		while(set.next()) {
 			sites.add(mapRowToSite(set));

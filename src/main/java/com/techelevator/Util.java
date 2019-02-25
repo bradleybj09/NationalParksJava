@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Util {
 	private Util() {}
 
@@ -19,9 +21,9 @@ public class Util {
 	public static final String CLOSE = "Close";
 	public static final String DAILY_FEE = "Daily Fee";
 	public static final String SEARCH_AVAILABLE_RESERVATION = "Search for an available Reservation";
-	public static final String WHICH_CAMPGROUND = "Which campground would you like to search?";
-	public static final String WHAT_ARRIVAL = "What is your arrival date? (mm/dd/yyyy)";
-	public static final String WHAT_DEPARTURE = "What is your departure date? (mm/dd/yyyy)";
+	public static final String WHICH_CAMPGROUND = "Which campground would you like to search? (0) to return to previous screen.";
+	public static final String WHAT_ARRIVAL = "What is your arrival date? (yyyy-mm-dd)";
+	public static final String WHAT_DEPARTURE = "What is your departure date? (yyyy-mm-dd)";
 	public static final String RESULTS_HEADER = "Here are your results:";
 	public static final String SITE_NUMBER = "Site No.";
 	public static final String MAX_OCCUPANCY = "Max Occup.";
@@ -29,26 +31,33 @@ public class Util {
 	public static final String MAX_RV_LENGTH = "Max RV Length (ft)";
 	public static final String UTILITY_HOOKUPS = "Utility Hookups";
 	public static final String COST = "Cost";
-	public static final String WHICH_SITE = "Which site would you like to reserve?";
-	public static final String WHAT_NAME_RESERVE = "What name would you like to put on the reservation?";
+	public static final String WHICH_SITE = "Which site would you like to reserve? (0) to return to previous screen.";
+	public static final String WHAT_NAME_RESERVE = "What name would you like to put on the reservation? (0) to return to previous screen.";
 	public static final String RESERVATION_CONFIRMED = "Your reservation was completed successfully. \nYour confirmation is: ";
 	public static final String YES = "Yes";
 	public static final String NO = "No";
 	public static final String MORE = "M) More";
 	public static final String QUIT = "Q) Quit";
-	public static final String INPUT_NOT_VALID_INTEGER = "You did not enter a valid option. Please try again.";
+	public static final String INPUT_NOT_VALID = "You did not enter a valid option. Please try again.";
 	public static final String ERROR = "Something we didn't account for went wrong.";
 	public static final String GOODBYE = "System exiting. Will I dream?";
 	public static final String NO_RESERVATIONS_FOUND = "No reservations were found matching your search.";
 	public static final String SEARCH_RESERVATION_PROMPT = "Please enter the name on the reservation(s) or the reservation ID";
 	public static final String RESERVATION_SEARCH_ERROR = "You did not enter a valid input. Please try again.";
+	public static final String CAMPGROUNDS = "Campgrounds";
+	public static final String PRESS_ENTER_TO_RETURN = "Press enter to return to the main screen.";
+	public static final String MONTH_OUT_OF_BOUNDS = "The campground is closed for at least part of your request. Please try again."; 
+	public static final String DEPARTURE_BEFORE_ARRIVAL = "Your departure date is before your arrival date. Please try again.";
+	public static final String BOOKING_IN_PAST = "Your booking dates are in the past. Please try again.";
+	
 	
 	public static final int DISPLAY_MODE_PARKS = 1;
 	public static final int DISPLAY_MODE_PARK_DETAILS = 2;
 	public static final int DISPLAY_MODE_CAMPGROUNDS = 3;
 	public static final int DISPLAY_MODE_SITES = 4;
-	public static final int DISPLAY_MODE_RESERVATIONS = 5;
+	public static final int DISPLAY_MODE_RESERVATION_RESULTS = 5;
 	public static final int DISPLAY_MODE_FIND_RESERVATION = 6;
+	public static final int DISPLAY_MODE_AVAILABLE_RESERVATIONS = 7;
 	public static final int DISPLAY_MODE_PROGRAM_EXIT = 99;
 	
 	public static int convertDoubleToInt(double d) {
@@ -59,6 +68,41 @@ public class Util {
 	public static double convertIntToDouble(int i) {
 		double d = i / 100.0;
 		return d;
+	}
+	
+	public static String convertMonthIntToString(int i) {
+		switch (i) {
+		case 1:
+			return "January";
+		case 2:
+			return "February";
+		case 3:
+			return "March";
+		case 4:
+			return "April";
+		case 5:
+			return "May";
+		case 6:
+			return "June";
+		case 7:
+			return "July";
+		case 8:
+			return "August";
+		case 9:
+			return "September";
+		case 10:
+			return "October";
+		case 11:
+			return "November";
+		case 12:
+			return "December";
+		default:
+			return "Octanuary IDK WHAT DID YOU ENTER";
+		}
+	}
+	
+	public static String convertBigDecimalToDollarString(BigDecimal b) {
+		return String.format("$%.2f",b.doubleValue());
 	}
 	
 }
